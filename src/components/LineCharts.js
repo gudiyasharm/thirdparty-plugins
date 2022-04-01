@@ -41,7 +41,6 @@ const LineCharts = () => {
                     <Line type='monotone' dataKey='student' stroke='red' activeDot={{r: 10}} />
                     <Line type='linear' dataKey='fees'  stroke='green' activeDot={{r: 10}} />
                 </LineChart>
-
             </ResponsiveContainer>
         </div>
     )

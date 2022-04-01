@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBYc73yub6hI02A89tbtmCC1mZcoCUsJHc",
@@ -15,10 +15,32 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 export const signInWithGoogle = () => {
-  signInWithPopup(auth, provider)
+  signInWithPopup(auth, googleProvider)
+    .then((result) => {
+      console.log(result)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+};
+
+export const signInWithFacebook = () => {
+  signInWithPopup(auth, facebookProvider)
+    .then((result) => {
+      console.log(result)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+};
+
+export const signInWithGithub = () => {
+  signInWithPopup(auth, githubProvider)
     .then((result) => {
       console.log(result)
     })
